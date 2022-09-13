@@ -1,0 +1,23 @@
+.toDoContainer {
+  min-height: 100vh;
+  background-image: url(../../images/bg-mobile-dark.jpg);
+  background-size: 100% 230px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+[data-theme='light'] .toDoContainer {
+  background-image: url(../../images/bg-mobile-light.jpg);
+}
+
+@media (min-width: 38em) {
+  .toDoContainer {
+    background-size: 100% 280px;
+    background-image: url(../../images/bg-desktop-dark.jpg);
+  }
+  [data-theme='light'] .toDoContainer {
+    background-image: url(../../images/bg-desktop-light.jpg);
+  }
+}

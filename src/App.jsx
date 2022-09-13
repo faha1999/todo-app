@@ -24,7 +24,9 @@ export const App = () => {
     <>
       <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <Header themeToggler={themeToggler} theme={theme} />
+        <main className="toDoContainer">
+          <Header themeToggler={themeToggler} theme={theme} />
+        </main>
       </ThemeProvider>
     </>
   );
