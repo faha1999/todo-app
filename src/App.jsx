@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Filters } from './components/Filters';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ToDoContainer } from './components/ToDoContainer';
@@ -44,6 +45,10 @@ export const App = () => {
               filter={filter}
             />
             <Footer tasks={tasks} setTasks={setTasks} setFilter={setFilter} />
+          </div>
+
+          <div className="for-mobile">
+            <Filters setFilter={setFilter} />
           </div>
         </main>
       </ThemeProvider>
