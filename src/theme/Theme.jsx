@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
   
   .todoInput input::placeholder,
   .todoCheckbox.completed ~ .todoTask,
-  .items-left,
+  .itemsLeft,
   .clear-completed-btn,
   .filters button,
   .drag-drop-line{
