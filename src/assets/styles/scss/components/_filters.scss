@@ -1,0 +1,31 @@
+.for-mobile {
+  margin-top: 15px;
+  width: 90%;
+}
+
+.for-mobile .filters {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  background: red;
+  padding: 15px 10% 13px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.4);
+}
+
+.filters button {
+  font-weight: 600;
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.filters .active-filter,
+.filters .active-filter:hover,
+.filters .active-filter:focus {
+  color: hsl(220, 98%, 61%);
+}
