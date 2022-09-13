@@ -1,41 +1,26 @@
-import React, { useState } from 'react';
-import { filterTasks } from '../utilities/filter';
+import React, { useContext, useState } from 'react';
+import todoContext from '../utilities/TodoContext';
 
 export const Filters = ({ setFilter }) => {
-  const [filter, updateFilter] = useState('all');
-
-  const clickHandler = (e) => {
-    updateFilter(e.target.value);
-    filterTasks(e.target.value, setFilter);
+  const { filter, handleFilter } = useContext(todoContext);
+  const handleClick = (e) => {
+    handleFilter(e.target.innerText);
   };
 
   return (
-    <div className="filters">
-      <button
-        value="all"
-        className={`filter-btn--all ${filter === 'all' ? 'active-filter' : ''}`}
-        onClick={clickHandler}
-      >
+    <div className="filter">
+      <p className={filter === 'All' ? 'active' : ''} onClick={handleClick}>
         All
-      </button>
-      <button
-        value="active"
-        className={`filter-btn--active ${
-          filter === 'active' ? 'active-filter' : ''
-        }`}
-        onClick={clickHandler}
-      >
+      </p>
+      <p className={filter === 'Active' ? 'active' : ''} onClick={handleClick}>
         Active
-      </button>
-      <button
-        value="completed"
-        className={`filter-btn--completed ${
-          filter === 'completed' ? 'active-filter' : ''
-        }`}
-        onClick={clickHandler}
+      </p>
+      <p
+        className={filter === 'Completed' ? 'active' : ''}
+        onClick={handleClick}
       >
         Completed
-      </button>
+      </p>
     </div>
   );
 };

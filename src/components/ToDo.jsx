@@ -1,31 +1,37 @@
-import React from 'react';
-import { ReactComponent as CrossIcon } from '../assets/images/icon-cross.svg';
-import { checkTask, deleteTodo } from '../utilities/UpdateTasks';
+import React, { useContext } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
+import todoContext from '../utilities/TodoContext';
+import CrossIcon from '../assets/images/icon-cross.svg';
 
-export const ToDo = ({ todoData, tasks, setTasks }) => {
-  const deleteTask = () => {
-    deleteTodo(todoData.id, tasks, setTasks);
+export const ToDo = ({ todoText, completed, index, id }) => {
+  const { setCompleted, clearTodo } = useContext(todoContext);
+
+  const handleClick = (e) => {
+    setCompleted(e.target.nextElementSibling.innerText);
   };
 
-  const taskComplete = () => {
-    checkTask(todoData.id, tasks, setTasks);
+  const handleDelete = (e) => {
+    clearTodo(e.target.previousElementSibling.innerText);
   };
 
   return (
-    <div
-      className={`todo ${todoData.taskCompleted === true ? 'completed' : ''}`}
-    >
-      <div className="todoBody" onClick={taskComplete}>
-        <button
-          className={`todoCheckbox ${
-            todoData.taskCompleted === true ? 'completed' : ''
-          }`}
-        ></button>
-        <p className="todoTask">{todoData.task}</p>
-      </div>
-      <button className="removeTaskBtn" onClick={deleteTask}>
-        <CrossIcon />
-      </button>
-    </div>
+    <Draggable key={id} draggableId={id} index={index}>
+      {(provided) => (
+        <div
+          className={`todo${completed ? ' completed' : ''}`}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          data-index={index}
+        >
+          <div
+            className={`circle${completed ? ' circle-gradient' : ''}`}
+            onClick={handleClick}
+          ></div>
+          <p className="todo-text">{todoText}</p>
+          <img src={CrossIcon} alt="cross" onClick={handleDelete} />
+        </div>
+      )}
+    </Draggable>
   );
 };

@@ -1,35 +1,38 @@
-import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import React, { useContext, useState } from 'react';
+import todoContext from '../utilities/TodoContext';
 
-import { addTask } from '../utilities/UpdateTasks';
+export const TodoInput = () => {
+  const [text, setText] = useState('');
+  const { addTodo } = useContext(todoContext);
 
-export const TodoInput = ({ tasks, setTasks }) => {
-  const [task, setTask] = useState('');
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
 
-  const addTodo = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (task === '') return;
-    const taskData = {
-      id: Math.floor(Math.random() * 1000) + 1,
-      task: task,
-      taskCompleted: false,
-    };
-
-    addTask(taskData, tasks, setTasks);
-    setTask('');
+    if (text !== '') {
+      addTodo({
+        id: uuidv4(),
+        completed: false,
+        text,
+      });
+      setText('');
+    }
   };
 
   return (
     <>
       <div className="TodoInputWrapper">
-        <form onSubmit={addTodo}>
+        <form onClick={handleSubmit}>
           <div className="todoInput">
             <button className="addBtn">Add</button>
             <input
               type="text"
               placeholder="Create a new todo"
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
+              value={text}
+              onChange={handleChange}
             />
           </div>
         </form>

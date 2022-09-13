@@ -2,6 +2,7 @@
   max-height: 240px;
   overflow: auto;
   scrollbar-width: thin;
+  margin-top: 2rem;
 }
 
 @media (min-width: 38em) {
@@ -56,19 +57,19 @@
   border-color: hsl(280, 87%, 65%);
 }
 
-.todoCheckbox.completed::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0.5px;
-  width: 100%;
-  height: 100%;
-  background-image: url(../../images/icon-check.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
-  transition: 0.3s;
-}
+// .todoCheckbox.completed::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0.5px;
+//   width: 100%;
+//   height: 100%;
+//   background-image: url(../../images/icon-check.svg);
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   border-radius: 50%;
+//   transition: 0.3s;
+// }
 
 .todoCheckbox.completed {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
@@ -111,5 +112,84 @@
   .todo:hover .removeTaskBtn,
   .removeTaskBtn:focus {
     opacity: 1;
+  }
+}
+
+.no-todo {
+  width: 100%;
+  text-align: center;
+  margin-top: 10rem;
+  color: var(--todo-color);
+  position: relative;
+
+  &::after {
+    content: 'Your todos will appear here';
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 120%;
+    left: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--todo-color);
+  }
+}
+
+.todo-stats {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 var(--bg-rad) var(--bg-rad);
+  background-color: var(--todo-bg);
+  color: var(--todo-color);
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .todo-stats {
+    position: relative;
+  }
+}
+
+.clear-completed {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover);
+  }
+}
+
+.completed p {
+  text-decoration: line-through;
+  color: var(--completed-todo) !important;
+}
+
+.clear-completed {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover);
+  }
+}
+
+.circle-gradient {
+  background: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: url(../../images/icon-check.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
