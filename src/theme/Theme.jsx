@@ -31,12 +31,12 @@ const GlobalStyles = createGlobalStyle`
   .todoInput,
   .items-filters-clear-container,
   .for-mobile .filters,
-  .todo-container::-webkit-scrollbar-track{
+  .todoContainer::-webkit-scrollbar-track{
     background: ${(props) => props.theme.todoBackground};
   }
   
   .addBtn,
-  .todo-checkbox{
+  .todoCheckbox{
     border: 1px solid ${(props) => props.theme.checkboxBorder};
   }
   
@@ -45,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   .todoInput input::placeholder,
-  .todo-checkbox.completed ~ .todo-task,
+  .todoCheckbox.completed ~ .todoTask,
   .items-left,
   .clear-completed-btn,
   .filters button,
@@ -69,7 +69,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.filtersBtnHover};
   }
 
-  .todo-container{
+  .todoContainer{
     scrollbar-color: hsl(233, 13%, 49%) ${(props) =>
       props.theme.todoBackground};
   }

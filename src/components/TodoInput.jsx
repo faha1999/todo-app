@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { addTask } from '../utilities/UpdateTasks';
+
 export const TodoInput = ({ tasks, setTasks }) => {
   const [task, setTask] = useState('');
 
@@ -13,6 +15,7 @@ export const TodoInput = ({ tasks, setTasks }) => {
       taskCompleted: false,
     };
 
+    addTask(taskData, tasks, setTasks);
     setTask('');
   };
 

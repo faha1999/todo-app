@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
+import { ToDoContainer } from './components/ToDoContainer';
 import { TodoInput } from './components/TodoInput';
 import { lightTheme, darkTheme, GlobalStyles } from './theme/Theme';
 
@@ -9,13 +10,20 @@ export const App = () => {
     localStorage.getItem('theme') != null
       ? localStorage.getItem('theme')
       : 'dark';
+  const savedTasks =
+    localStorage.getItem('tasks') != null
+      ? JSON.parse(localStorage.getItem('tasks'))
+      : [];
 
   const [theme, setTheme] = useState(savedTheme);
+  const [tasks, setTasks] = useState(savedTasks);
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-  }, [theme]);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [theme, tasks]);
 
   const themeToggler = () => {
     theme === 'dark' ? setTheme('light') : setTheme('dark');
@@ -27,7 +35,14 @@ export const App = () => {
         <GlobalStyles />
         <main className="toDoContainer">
           <Header themeToggler={themeToggler} theme={theme} />
-          <TodoInput />
+          <TodoInput tasks={tasks} setTasks={setTasks} />
+          <div className="container">
+            <ToDoContainer
+              todoData={tasks}
+              setTasks={setTasks}
+              filter={filter}
+            />
+          </div>
         </main>
       </ThemeProvider>
     </>
