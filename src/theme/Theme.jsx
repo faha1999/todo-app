@@ -28,23 +28,23 @@ const GlobalStyles = createGlobalStyle`
 		background-color: ${(props) => props.theme.bodyBackground};
 	}
 
-  .todo-input,
+  .todoInput,
   .items-filters-clear-container,
   .for-mobile .filters,
   .todo-container::-webkit-scrollbar-track{
     background: ${(props) => props.theme.todoBackground};
   }
   
-  .add-btn,
+  .addBtn,
   .todo-checkbox{
     border: 1px solid ${(props) => props.theme.checkboxBorder};
   }
   
-  .todo-input input{
+  .todoInput input{
     color: ${(props) => props.theme.text}
   }
   
-  .todo-input input::placeholder,
+  .todoInput input::placeholder,
   .todo-checkbox.completed ~ .todo-task,
   .items-left,
   .clear-completed-btn,

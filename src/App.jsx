@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
+import { TodoInput } from './components/TodoInput';
 import { lightTheme, darkTheme, GlobalStyles } from './theme/Theme';
 
 export const App = () => {
@@ -26,6 +27,7 @@ export const App = () => {
         <GlobalStyles />
         <main className="toDoContainer">
           <Header themeToggler={themeToggler} theme={theme} />
+          <TodoInput />
         </main>
       </ThemeProvider>
     </>
