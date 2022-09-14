@@ -29,26 +29,21 @@ const GlobalStyles = createGlobalStyle`
 	}
 
   .todoInput,
-  .items-filters-clear-container,
-  .for-mobile .filters,
+  .todo-stats,
   .todoContainer::-webkit-scrollbar-track{
     background: ${(props) => props.theme.todoBackground};
   }
   
-  .addBtn,
-  .todoCheckbox{
+  .addBtn{
     border: 1px solid ${(props) => props.theme.checkboxBorder};
   }
   
-  .todoInput input{
+  .todoInput input, .todo p, .no-todo , .no-todo:after, .todo-stats{
     color: ${(props) => props.theme.text}
   }
   
   .todoInput input::placeholder,
-  .todoCheckbox.completed ~ .todoTask,
-  .itemsLeft,
-  .clear-completed-btn,
-  .filters button,
+  .completed p,
   .drag-drop-line{
     color: ${(props) => props.theme.placeholderAndCompletedTask}
   }
@@ -59,13 +54,8 @@ const GlobalStyles = createGlobalStyle`
     border-bottom: 2px solid ${(props) => props.theme.todoBorder};
   }
 
-  .clear-completed-btn:hover,
-  .clear-completed-btn:focus{
-    color: ${(props) => props.theme.clearCompletedBtnHover};
-  }
-
-  .filters button:focus,
-  .filters button:hover{
+  .todo-filter p:focus,
+  .todo-filter p:hover, .clear-completed:hover{
     color: ${(props) => props.theme.filtersBtnHover};
   }
 
@@ -74,6 +64,11 @@ const GlobalStyles = createGlobalStyle`
       props.theme.todoBackground};
   }
 
+  @media (max-width: 600px) {
+    .todo-filter{
+      background: ${(props) => props.theme.todoBackground};
+    }
+  }
 `;
 
 export { darkTheme, lightTheme, GlobalStyles };

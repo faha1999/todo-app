@@ -8,7 +8,7 @@ export const Filters = ({ setFilter }) => {
   };
 
   return (
-    <div className="filter">
+    <div className="todo-filter">
       <p className={filter === 'All' ? 'active' : ''} onClick={handleClick}>
         All
       </p>

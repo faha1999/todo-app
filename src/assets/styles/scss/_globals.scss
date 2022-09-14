@@ -14,6 +14,7 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 p,
@@ -35,16 +36,4 @@ code {
 
 *:focus {
   outline: 2px solid #fffbfb;
-}
-
-@media (min-width: 38em) {
-  .for-mobile {
-    display: none;
-  }
-}
-
-@media (max-width: 38em) {
-  .for-desktop {
-    display: none;
-  }
 }

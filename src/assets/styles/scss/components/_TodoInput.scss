@@ -1,5 +1,6 @@
 .TodoInputWrapper {
-  width: 90%;
+  width: 100%;
+  margin-bottom: 1rem;
 
   .todoInput {
     display: flex;
@@ -28,11 +29,5 @@
         opacity: 1;
       }
     }
-  }
-}
-
-@media (min-width: 38em) {
-  .TodoInputWrapper {
-    width: 550px;
   }
 }
