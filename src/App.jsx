@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Filters } from './components/Filters';
+import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ToDoContainer } from './components/ToDoContainer';
 import { TodoInput } from './components/TodoInput';
@@ -36,6 +37,8 @@ export const App = () => {
               <ToDoContainer />
             </TodoProvider>
           </div>
+
+          <Footer />
         </main>
       </ThemeProvider>
     </>

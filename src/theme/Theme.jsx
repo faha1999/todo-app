@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
   .todoInput,
   .todo-stats,
-  .todoContainer::-webkit-scrollbar-track{
+  .todoContainer::-webkit-scrollbar-track, .attribution p{
     background: ${(props) => props.theme.todoBackground};
   }
   
@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     border: 1px solid ${(props) => props.theme.checkboxBorder};
   }
   
-  .todoInput input, .todo p, .no-todo , .no-todo:after, .todo-stats{
+  .todoInput input, .todo p, .no-todo , .no-todo:after, .todo-stats, .attribution p{
     color: ${(props) => props.theme.text}
   }
   
